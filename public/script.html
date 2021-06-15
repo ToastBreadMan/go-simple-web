@@ -1,0 +1,59 @@
+<html>
+    <button id="forward">Forward</button>
+    <button id="backward">Backward</button>
+    <button id="rotate_left">Left</button>
+    <button id="rotate_right">Right</button>
+    <script>
+        var ip = ''
+        var url = ip+"/api/v1/motor"
+        var payload = {command:"", intensityBetween0And1023: 500, durationInMilliseconds: 500};
+        document.getElementById("forward").addEventListener('click', ()=>{
+            payload.command = 'forward'
+            request = {
+                method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+            }
+            fetch(url, request)
+        })
+        document.getElementById("backward").addEventListener('click', ()=>{
+            payload.command = 'backward'
+            request = {
+                method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+            }
+            fetch(url, request)
+        })
+        document.getElementById("rotate_right").addEventListener('click', ()=>{
+            payload.command = 'rotate_right'
+            request = {
+                method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+            }
+            fetch(url, request)
+        })
+        document.getElementById("rotate_left").addEventListener('click', ()=>{
+            payload.command = 'rotate_left'
+            request = {
+                method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+            }
+            fetch(url, request)
+        })
+    </script>
+</html>
